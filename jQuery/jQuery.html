@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".style1").css("fontSize", "20px");
+            $(".style2").css("color", "grey");
+            $(".style3").css("fontWeight", "bold");
+            $("form *").attr("disabled", true);
+
+
+            $("a").prepend("↗");
+            $("a").attr("target", "_blank");
+            $("[href^='http://']").each(function () {
+                $(this).attr("href", $(this).attr("href").replace("http://", "https://"));
+            });
+            $("#click").click(function () {
+                $("a").each(function () {
+                    $(this).contents().eq(0).remove();
+                });
+                $("a").removeAttr("target");
+            });
+            
+
+            $("#FadeOut").click(function () {
+                $("#p1").fadeOut();
+            });
+            $("#Hide").click(function () {
+                $("#p2").hide(1200);
+            });
+            $("#Animate").click(function () {
+                $("#p3").animate({ opacity: 0.4 });
+            });
+            $("#Toggle").click(function () {
+                $("#p4").toggle();
+            });
+            $("#Animate2").click(function () {
+                $("#p5").animate({height: "300px"});
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input id="click" type="button" value="ОТМЕНА" style="float:right">
+    <p>JQuery</p>
+    <p class="style2"> Различные новости </p>
+    <p class="style1"> из различных источников </p>
+    <a href="https://www.fontanka.ru/" class="style3"> Новости с неизменной ссылкой</a> <br>
+    <a href="http://www.profinance.ru/currency_usd.asp" class="style1"> Курс доллара</a>
+    <a href="https://www.google.com/intl/ru/gmail/about/" class="style2">Почта</a>
+    <form class="form" method="post" action="submit.html">
+        <p>
+            <label for="name1" class="label">Форма без возможности ввода</label>
+            <input type="text" name="nothing" id="noth">
+        </p>
+
+        <p>
+            <label for="name2" class="label">Недействительная кнопка</label>
+            <input type="button" value="push">
+        </p>
+    </form>
+
+
+    <table>
+        <th>Текст</th>
+        <th>Эффект/анимация</th>
+        <tr>
+            <td id="p1">Каждый</td>
+            <td><input id="FadeOut" type="button" value="FadeOut"></td>
+        </tr>
+
+        <tr>
+            <td id="p2">охотник</td>
+            <td><input id="Hide" type="button" value="Hide"></td>
+        </tr>
+
+        <tr>
+            <td id="p3">желает</td>
+            <td><input id="Animate" type="button" value="Animate"></td>
+        </tr>
+
+        <tr>
+            <td id="p4">знать</td>
+            <td><input id="Toggle" type="button" value="Toggle"></td>
+        </tr>
+
+        <tr>
+            <td id="p5">где сидит фазан</td>
+            <td><input id="Animate2" type="button" value="Animate2"></td>
+        </tr>
+    </table>
+</body>
+</html>
