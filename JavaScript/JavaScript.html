@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>JavaScript</title>
+ <style>
+ 	#reset{
+ 	        background-image: url(reset.png)
+ 	}
+ 	.image {
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            background-size: 20px;
+            background-position: left top;
+            text-indent: 20px;
+        }
+    .image:hover {
+            background-color: grey;
+        }
+ </style>
+</head>
+<body bgcolor="#c0c0c0">
+ <div id="container">
+ 	<h2>Task 1</h2>
+
+ 	<script type="text/javascript">
+ 		document.write('new word');
+ 	</script>
+
+ 	<br>
+
+ 	<script type="text/javascript">
+ 		let str = 'new word';
+ 		let words = 1;
+ 		let letters = 0;
+
+
+ 		for(let i=0; i<str.length; i++){
+ 			if(str[i]==' '){
+ 				words+=1;
+ 			}
+ 			else{
+ 				letters+=1;
+ 			}
+ 		}
+
+ 		document.write(words+' words, '+ letters+' letters');
+ 	</script>
+
+ 	<br>
+
+ 	<script type="text/javascript">
+ 		var URL= window.location;
+ 		document.write(URL);
+ 	</script>
+
+ 	<br>
+
+ 	<script>
+ 		var path = window.location.pathname;
+ 		var name = path.split("/").pop();
+ 		var exp = name.split(".").pop();
+ 		document.write(`${'filename: ' + name} <br/> ${'expansion: ' + exp}`);
+    </script>
+ 	
+ 	<br><br>
+
+ 	<h2>Task 2</h2>
+
+ 	<a name="anchor1">anchor1</a>
+ 	<a name="anchor2">anchor2</a>
+
+ 	<br>
+
+ 	<a href="https://vk.com">Вконтакте</a>
+ 	<br>
+ 	<img id="pic2" src="pic2.jpg" height="200" width="370" alt="pic">
+
+ 	<br><br>
+
+ 	<a href="http://youtube.com">YouTube</a>
+ 	<br>
+ 	<img id="pic3" src="pic3.jpg" height="250" width="400" alt="pic">
+
+ 	<br><br>
+
+ 	<a href="https://www.gismeteo.ru/weather-sankt-peterburg-4079/">Погода в Санкт-Петербурге</a>
+ 	<br>
+ 	<img id="pic1" src="pic1.jpg" height="300" width="500" alt="pic">
+
+ 	<br> 
+
+
+ 	<script type="text/javascript">
+ 		let maxWidth = 0;
+ 		let sumOfHeights = 0;
+ 		for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
+ 			if (document.getElementsByTagName('img')[i].width > maxWidth)
+ 				maxWidth = document.getElementsByTagName('img')[i].width; 
+ 			sumOfHeights += document.getElementsByTagName('img')[i].height;
+ 		}
+
+ 		document.write("<div/>Number of anchors " + document.querySelectorAll("a[name]").length
+        + "<div/>The first is " + document.querySelectorAll("a[name]")[0].innerHTML
+        + "<div/>Number of refs " + document.querySelectorAll("a[href]").length
+        + "<div/>Number of imgs " + + document.getElementsByTagName('img').length
+        + "<div/>The width of first " + document.getElementsByTagName('img')[0].width
+        + "<div/>The maximum width " + maxWidth + "<div/>The sum of heights " + sumOfHeights);
+ 	</script>
+
+ 	<br>
+
+ 	<h2>Task 3</h2>
+
+ 	<script>
+ 		for (var i = 0; i < 11; i++) {
+ 			document.write("<form name='" + (i + 1) + "'>"
+            + "<input type='button' id='show' class='image' value='Show name of form'"
+            + "onClick='alert(&quot;Show name of form&quot;)'></input>"
+            + "<input type='button' id='aff'  class='image' value='Affiliation'"
+            + "onClick='alert(" + (i + 1) + ")'></input>"
+            + "<input type='text'></input>"
+            + "<input type='button' id= 'reset' class='image' value='Reset'"
+            + "onClick='document.getElementsByName(" + (i + 1) + ")[0].reset()'></input>"
+            + "<input type='button' id= 'amount' class='image' value='Amount of fields'"
+            + "onClick='alert(document.getElementsByName(" + (i + 1) + ")[0].elements.length)'></input>"
+            + "</form>");
+ 		}
+ 		document.write("<div/>" + document.getElementsByTagName('form')[1].name);
+ 		for (var i = 3; i < document.getElementsByTagName('form').length; i += 2) {
+ 			document.write(", " + document.getElementsByTagName('form')[i].name);
+ 		}
+ 	</script>
+
+ </div>
+</body>
+</html>
